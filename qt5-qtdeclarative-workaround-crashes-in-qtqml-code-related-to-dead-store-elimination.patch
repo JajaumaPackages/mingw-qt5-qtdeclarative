@@ -1,0 +1,14 @@
+--- src/qml/qml.pro.orig	2016-08-25 10:17:24.870157692 +0200
++++ src/qml/qml.pro	2016-08-25 10:18:52.255634647 +0200
+@@ -19,6 +19,11 @@ exists("qqml_enable_gcov") {
+     LIBS_PRIVATE += -lgcov
+ }
+ 
++greaterThan(QT_GCC_MAJOR_VERSION, 5) {
++    # Our code is bad. Temporary workaround.
++    QMAKE_CXXFLAGS += -fno-delete-null-pointer-checks -fno-lifetime-dse
++}
++
+ QMAKE_DOCS = $$PWD/doc/qtqml.qdocconf
+ 
+ # 2415: variable "xx" of static storage duration was declared but never referenced

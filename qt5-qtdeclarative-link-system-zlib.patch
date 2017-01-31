@@ -1,0 +1,11 @@
+--- src/qmldevtools/qmldevtools.pro.orig	2016-08-25 10:38:19.918287686 +0200
++++ src/qmldevtools/qmldevtools.pro	2016-08-25 10:39:13.402358622 +0200
+@@ -13,6 +13,8 @@
+ clang:if(greaterThan(QT_CLANG_MAJOR_VERSION, 3)|greaterThan(QT_CLANG_MINOR_VERSION, 3)): \
+     WERROR += -Wno-error=unused-const-variable
+ 
++QMAKE_LIBS += -lz
++
+ load(qt_module)
+ 
+ include(../3rdparty/masm/masm-defs.pri)

@@ -1,0 +1,21 @@
+--- qtdeclarative-opensource-src-5.6.0/src/qml/debugger/qqmldebugconnector.cpp.orig	2016-04-07 00:18:28.875650234 +0200
++++ qtdeclarative-opensource-src-5.6.0/src/qml/debugger/qqmldebugconnector.cpp	2016-04-07 00:20:22.745848956 +0200
+@@ -47,14 +47,18 @@
+ 
+ // Connectors. We could add more plugins here, and distinguish by arguments to instance()
+ Q_QML_DEBUG_PLUGIN_LOADER(QQmlDebugConnector)
++#if !defined(QT_STATIC)
+ Q_QML_IMPORT_DEBUG_PLUGIN(QQmlDebugServerFactory)
+ Q_QML_IMPORT_DEBUG_PLUGIN(QQmlNativeDebugConnectorFactory)
++#endif
+ 
+ // Services
+ Q_QML_DEBUG_PLUGIN_LOADER(QQmlDebugService)
++#if !defined(QT_STATIC)
+ Q_QML_IMPORT_DEBUG_PLUGIN(QQmlInspectorServiceFactory)
+ Q_QML_IMPORT_DEBUG_PLUGIN(QQmlProfilerServiceFactory)
+ Q_QML_IMPORT_DEBUG_PLUGIN(QQmlDebuggerServiceFactory)
++#endif
+ 
+ struct QQmlDebugConnectorParams {
+     QString pluginKey;
