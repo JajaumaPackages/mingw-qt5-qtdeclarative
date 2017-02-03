@@ -21,7 +21,7 @@
 
 Name:           mingw-qt5-%{qt_module}
 Version:        5.6.0
-Release:        2%{?pre:.%{pre}}%{?snapshot_date:.git%{snapshot_date}.%{snapshot_rev}}%{?dist}
+Release:        3%{?pre:.%{pre}}%{?snapshot_date:.git%{snapshot_date}.%{snapshot_rev}}%{?dist}
 Summary:        Qt5 for Windows - QtDeclarative component
 
 License:        GPLv3 with exceptions or LGPLv2 with exceptions
@@ -371,6 +371,9 @@ find $RPM_BUILD_ROOT%{mingw64_datadir}/qt5 | grep .dll| sed s@"^$RPM_BUILD_ROOT"
 
 
 %changelog
+* Fri Feb 03 2017 Jajauma's Packages <jajauma@yandex.ru> - 5.6.0-3
+- Rebuild with GCC 5.4.0
+
 * Thu Aug 25 2016 Martin Bříza <mbriza@redhat.com> - 5.6.0-2
 - Fix crashes in the QML engine related to dead store elimination
 
